@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/healthControlFragment">
+    <fragment
+        android:id="@+id/healthControlFragment"
+        android:name="com.gamzecoskun.switchboard.ui.healthcontrol.HealthControlFragment"
+        android:label="fragment_health_control"
+        tools:layout="@layout/fragment_health_control" />
+    <fragment
+        android:id="@+id/hydrationFragment"
+        android:name="com.gamzecoskun.switchboard.ui.hydration.HydrationFragment"
+        android:label="fragment_hydration"
+        tools:layout="@layout/fragment_hydration" />
+    <fragment
+        android:id="@+id/stepsFragment"
+        android:name="com.gamzecoskun.switchboard.ui.steps.StepsFragment"
+        android:label="fragment_steps"
+        tools:layout="@layout/fragment_steps" />
+    <fragment
+        android:id="@+id/sleepFragment"
+        android:name="com.gamzecoskun.switchboard.ui.sleep.SleepFragment"
+        android:label="fragment_sleep"
+        tools:layout="@layout/fragment_sleep" />
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.gamzecoskun.switchboard.ui.exercise.ExerciseFragment"
+        android:label="fragment_exercise"
+        tools:layout="@layout/fragment_exercise" />
+    <fragment
+        android:id="@+id/mealsFragment"
+        android:name="com.gamzecoskun.switchboard.ui.meals.MealsFragment"
+        android:label="fragment_meals"
+        tools:layout="@layout/fragment_meals" />
+</navigation>
