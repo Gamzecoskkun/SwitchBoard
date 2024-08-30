@@ -18,16 +18,38 @@ class HealthControlFragment : Fragment(R.layout.fragment_health_control) {
 
         setupSwitches()
 
+        viewModel.healthControlChecked.observe(viewLifecycleOwner) { isChecked ->
+            binding.healthControl.isChecked = isChecked
+            setSwitchesEnabled(!isChecked)
+        }
+
+        viewModel.hydrationChecked.observe(viewLifecycleOwner) { isChecked ->
+            binding.hydration.isChecked = isChecked
+        }
+
+        viewModel.exerciseChecked.observe(viewLifecycleOwner) { isChecked ->
+            binding.exercise.isChecked = isChecked
+        }
+
+        viewModel.sleepChecked.observe(viewLifecycleOwner) { isChecked ->
+            binding.sleep.isChecked = isChecked
+        }
+
+        viewModel.stepsChecked.observe(viewLifecycleOwner) { isChecked ->
+            binding.steps.isChecked = isChecked
+        }
+
+        viewModel.mealsChecked.observe(viewLifecycleOwner) { isChecked ->
+            binding.meals.isChecked = isChecked
+        }
+
         binding.healthControl.apply {
-            isChecked = true
+            isChecked = viewModel.healthControlChecked.value ?: true
             setOnCheckedChangeListener { _, isChecked ->
                 setSwitchesEnabled(!isChecked)
-                viewModel.updateAddedItemsOrder(
-                    R.id.healthControl,
-                    isChecked
-                )
+                viewModel.updateAddedItemsOrder(R.id.healthControl, isChecked)
             }
-            setSwitchesEnabled(false)
+            setSwitchesEnabled(!(viewModel.healthControlChecked.value ?: true))
         }
     }
 
@@ -35,7 +57,7 @@ class HealthControlFragment : Fragment(R.layout.fragment_health_control) {
         with(binding) {
             listOf(hydration, steps, sleep, exercise, meals).forEach {
                 it.isEnabled = isEnabled
-                it.isChecked = false
+
             }
         }
     }
