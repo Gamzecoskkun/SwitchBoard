@@ -1,80 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".ui.healthcontrol.HealthControlFragment">
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/meals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Meals"
-        app:layout_constraintEnd_toStartOf="@+id/exercise"
-        app:layout_constraintHorizontal_chainStyle="packed"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/health"
+        app:layout_constraintBottom_toTopOf="@id/healthControl"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/exercise"
-        app:layout_constraintBottom_toBottomOf="@+id/meals"
-        app:layout_constraintEnd_toStartOf="@+id/sleep"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/meals"
-        app:layout_constraintTop_toTopOf="@+id/meals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Exercise" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/sleep"
-        app:layout_constraintBottom_toBottomOf="@+id/meals"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/exercise"
-        app:layout_constraintTop_toTopOf="@+id/meals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sleep" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/steps"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/hydration"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meals"
-        app:layout_constraintVertical_bias="0.5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Steps" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/hydration"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/healthControl"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/steps"
-        app:layout_constraintTop_toBottomOf="@+id/exercise"
-        app:layout_constraintVertical_bias="0.5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hydration" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/healthControl"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/hydration"
-        app:layout_constraintTop_toBottomOf="@+id/sleep"
-        app:layout_constraintVertical_bias="0.5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="Healts Control" />
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <TextView
+        android:id="@+id/healthControlText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Health Control"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/healthControl"
+        app:layout_constraintStart_toStartOf="@+id/healthControl"
+        app:layout_constraintTop_toBottomOf="@+id/healthControl" />
+
+    <!-- Grid Düzeni için Switch'ler ve TextView'ler -->
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/meals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/exercise"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/healthControlText" />
+
+    <TextView
+        android:id="@+id/mealsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Meals"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/meals"
+        app:layout_constraintStart_toStartOf="@id/meals"
+        app:layout_constraintTop_toBottomOf="@id/meals" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/sleep"
+        app:layout_constraintStart_toEndOf="@id/meals"
+        app:layout_constraintTop_toBottomOf="@id/healthControlText" />
+
+    <TextView
+        android:id="@+id/exerciseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Exercise"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/exercise"
+        app:layout_constraintStart_toStartOf="@id/exercise"
+        app:layout_constraintTop_toBottomOf="@id/exercise" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/sleep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/steps"
+        app:layout_constraintStart_toEndOf="@id/exercise"
+        app:layout_constraintTop_toBottomOf="@id/healthControlText" />
+
+    <TextView
+        android:id="@+id/sleepText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sleep"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/sleep"
+        app:layout_constraintStart_toStartOf="@id/sleep"
+        app:layout_constraintTop_toBottomOf="@id/sleep" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/steps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/hydration"
+        app:layout_constraintStart_toEndOf="@id/sleep"
+        app:layout_constraintTop_toBottomOf="@id/healthControlText" />
+
+    <TextView
+        android:id="@+id/stepsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Steps"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/steps"
+        app:layout_constraintStart_toStartOf="@id/steps"
+        app:layout_constraintTop_toBottomOf="@id/steps" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/hydration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/steps"
+        app:layout_constraintTop_toBottomOf="@id/healthControlText" />
+
+    <TextView
+        android:id="@+id/hydrationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Hydration"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/hydration"
+        app:layout_constraintStart_toStartOf="@id/hydration"
+        app:layout_constraintTop_toBottomOf="@id/hydration" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
